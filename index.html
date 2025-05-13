@@ -9,15 +9,8 @@
   <body>
   <div class="container">
     <div class="search-box">
-      <select id="drop">
-        <option value="">Select a city</option>
-        <option value="New York">New York</option>
-        <option value="Los Angeles">Los Angeles</option>
-        <option value="Chicago">Chicago</option>
-        <option value="Paris">Paris</option>
-        <option value="Tokyo">Tokyo</option>
-        <option value="London">London</option>
-      </select>
+      <input type="text" id="drop" autocomplete="off">
+      <ul id="suggestionList"></ul>
       <button id="get-forecast">Get Forecast</button>
     </div>
 
