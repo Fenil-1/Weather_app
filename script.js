@@ -11,30 +11,26 @@ const feels_like = document.getElementById("feels-like");
 const temperature = document.getElementById("main-temperature");
 const slist = document.getElementById('suggestionList');
 
-// selectCity.addEventListener("input", ()=>{
-
-// const query = selectCity.value;
-// clearTimeout(debounceTimer);
-// debounceTimer = setTimeout(()=>{
-// getSuggestionCity(query);
+selectCity.addEventListener("input", ()=>{
+// console.log(selectCity.value);
+const query = selectCity.value;
+// let debounceTimer = setTimeout(()=>{
+  getSuggestionCity(query);
 // },1000)
+// clearTimeout(debounceTimer);
 
-// })
+})
 
-// function getSuggestionCity(query){
-//   const apiKey = "8bc16afc26f84edeba892e55cef52823";
-//   fetch(`https://api.openweathermap.org/data/2.5/find?q=${query}&type=like&sort=population&cnt=5&appid=${apiKey}`) 
-//   .then((response)=>{
-//     return response.json();
-//   })
-//   .then((data)=>{
-//     console.log(data);
-    
-//   })
-//   .catch(err){
-//     console.log("error in suggesting city",err);
-//   }
-// }
+async function getSuggestionCity(query){
+  const apiKey = "8bc16afc26f84edeba892e55cef52823";
+  const response= await fetch(`https://api.openweathermap.org/data/2.5/find?q=${query}&type=like&sort=population&cnt=5&appid=${apiKey}`) 
+  if(!response.ok){
+    console.log("response not okay");
+  }
+  const data = await response.json();
+  console.log(data);
+
+}
 
 
 async function showWeather(city){
